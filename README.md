@@ -8,41 +8,25 @@
 - Overview of Cyclistic Bike-Share
 
 - Business Objective
-
 - Data Cleaning & Preparation
-
 - Data Loading and Inspection
-
  - Handling Missing Values
-
 - Data Cleaning and Formatting
-
 - Exploratory Data Analysis (EDA)
-
 - User Behavior: Casual Riders vs. Annual Members
 
 Bike Type Preferences
 
 - Peak Usage Trends (Time & Day Analysis)
-
 - Key Insights & Findings
-
 - Differences in Usage Patterns
-
 - Seasonal and Temporal Trends
-
 - Bike Type Performance
-
 - Recommendations
-
 - Strategies to Convert Casual Riders to Members
-
 - Marketing and Promotional Ideas
-
 - Operational Improvements
-
 - Conclusion
-
 - Summary of Findings
 
 
