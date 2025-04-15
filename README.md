@@ -85,6 +85,9 @@ Including some code features I worked with.
 ```sql
 -- Basic query to see all the data in a table
 SELECT * FROM `divvy-data-456911.Divvy_Data.Jan_Data` ;
+SELECT * FROM `divvy-data-456911.Divvy_Data.Feb_Data` ;
+SELECT *
+FROM `divvy-data-456911.Divvy_Data.Mar_Data`;
 ```
 
 ### Key Questions Addressed:
