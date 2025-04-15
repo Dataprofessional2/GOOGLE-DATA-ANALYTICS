@@ -66,9 +66,9 @@ Technologies:
 In the initial data preparation phase, we performed the following tasks:
 
 - Data loading and inspection.
-
+- Standardizing Data
+- Headers Naming Convention
 - Handling missing values.
-
 - Data cleaning and formatting.
 
 ### Exploratory Data Analysis (EDA)
@@ -81,7 +81,7 @@ EDA involved exploring the Cyclistic bike-share data to answer key questions, su
  - What times and days see the highest bike usage?
 
 ### Data Analysis
-Include some code features I worked with.
+Including some code features I worked with.
 ```sql
 select * from employee
 where ride_id = "b8612";
