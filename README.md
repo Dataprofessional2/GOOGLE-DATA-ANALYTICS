@@ -83,8 +83,8 @@ EDA involved exploring the Cyclistic bike-share data to answer key questions, su
 ### Data Analysis
 Including some code features I worked with.
 ```sql
-select * from employee
-where ride_id = "b8612";
+-- Basic query to see all the data in a table
+SELECT * FROM `divvy-data-456911.Divvy_Data.Jan_Data` ;
 ```
 
 ### Key Questions Addressed:
