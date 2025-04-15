@@ -5,6 +5,7 @@
 ### Table Of Contents
 - Introduction
 
+
 - Overview of Cyclistic Bike-Share
 
 - Business Objective
@@ -14,6 +15,7 @@
 - Data Cleaning and Formatting
 - Exploratory Data Analysis (EDA)
 - User Behavior: Casual Riders vs. Annual Members
+
 
 Bike Type Preferences
 
