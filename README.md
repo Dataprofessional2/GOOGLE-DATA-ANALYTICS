@@ -166,7 +166,9 @@ FROM
   divvy-data-456911.Divvy_Data.Mar_Data
 GROUP BY
   Member_Casual
-;```
+; ```
+
+
 ### Key Questions Addressed:
 
 How do annual members and casual riders use Cyclistic bikes differently?
