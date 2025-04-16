@@ -66,16 +66,107 @@ EDA involved exploring the Cyclistic bike-share data to answer key questions, su
 
  - What times and days see the highest bike usage?
 
-### Data Analysis
+### Data Analysis using SQL
 Including some code features I worked with.
 ```sql
 -- Basic query to see all the data in a table
 SELECT * FROM `divvy-data-456911.Divvy_Data.Jan_Data` ;
 SELECT * FROM `divvy-data-456911.Divvy_Data.Feb_Data` ;
-SELECT *
-FROM `divvy-data-456911.Divvy_Data.Mar_Data`;
+-- And so on
 ```
-
+```
+-- Query to sort data by Ride_Id
+select * from divvy-data-456911.Divvy_Data.Mar_Data
+order by Ride_Id;
+```
+```
+-- Query to check the total members using electric bikes
+select Member_Casual,count(*) from divvy-data-456911.Divvy_Data.Mar_Data 
+where Rideable_Type = 'electric_bike'
+group by Member_Casual;
+```
+```
+-- Query to see total user of electric and classic bike of people with membership
+SELECT 
+  Rideable_Type, 
+  COUNT(*) AS ride_count
+FROM divvy-data-456911.Divvy_Data.Mar_Data
+WHERE Member_Casual = 'member'
+GROUP BY Rideable_Type
+ORDER BY ride_count DESC;
+```
+```
+-- Query to see total user of electric and classic bike of people with casual membership
+SELECT 
+  Rideable_Type, 
+  COUNT(*) AS ride_count
+FROM divvy-data-456911.Divvy_Data.Mar_Data
+WHERE Member_Casual = 'casual'
+GROUP BY Rideable_Type
+ORDER BY ride_count DESC;
+```
+```
+-- Query to see total user of electric and classic bike of people with permanent membership in decreasing manner
+SELECT 
+  Rideable_Type, 
+  COUNT(*) AS ride_count
+FROM divvy-data-456911.Divvy_Data.Mar_Data
+WHERE Member_Casual = 'member'
+GROUP BY Rideable_Type
+ORDER BY ride_count DESC;
+```
+```
+-- Query to see total ride count according to the use of bike in a day also grouped by different membership 
+SELECT
+  Member_Casual,
+  EXTRACT(HOUR FROM Start_At_Time) AS ride_hour,
+  COUNT(*) AS ride_count
+FROM
+  divvy-data-456911.Divvy_Data.Mar_Data
+GROUP BY
+  Member_Casual, ride_hour
+ORDER BY
+  ride_hour
+LIMIT 25 OFFSET 2;
+```
+```
+-- Qery to see most popular destination where the trip ended most of times
+SELECT 
+  End_Station_Name,
+  COUNT(*) AS total_rides
+FROM 
+  divvy-data-456911.Divvy_Data.Mar_Data
+GROUP BY 
+  End_Station_Name
+ORDER BY 
+  total_rides DESC
+LIMIT 10;
+```
+```
+-- Query to see total ride count for casual members and listing out most popular destinations where the trip ended
+SELECT 
+  End_Station_Name,
+  COUNT(*) AS ride_count
+FROM 
+  divvy-data-456911.Divvy_Data.Mar_Data
+WHERE 
+  Member_Casual = 'casual'
+GROUP BY 
+  End_Station_Name
+ORDER BY 
+  ride_count DESC
+LIMIT 10;
+```
+```
+-- Query to see average ride length for members
+SELECT
+  Member_Casual,
+  AVG(CAST(Ride_Length AS FLOAT64)) AS avg_ride_length
+FROM
+  divvy-data-456911.Divvy_Data.Mar_Data
+GROUP BY
+  Member_Casual
+;```
 ### Key Questions Addressed:
 
 How do annual members and casual riders use Cyclistic bikes differently?
