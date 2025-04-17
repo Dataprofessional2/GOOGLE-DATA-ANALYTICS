@@ -79,13 +79,13 @@ SELECT * FROM `divvy-data-456911.Divvy_Data.Feb_Data` ;
 select * from divvy-data-456911.Divvy_Data.Mar_Data
 order by Ride_Id;
 ```
-```
+``` sql
 -- Query to check the total members using electric bikes
 select Member_Casual,count(*) from divvy-data-456911.Divvy_Data.Mar_Data 
 where Rideable_Type = 'electric_bike'
 group by Member_Casual;
 ```
-```
+``` sql
 -- Query to see total user of electric and classic bike of people with membership
 SELECT 
   Rideable_Type, 
@@ -95,7 +95,7 @@ WHERE Member_Casual = 'member'
 GROUP BY Rideable_Type
 ORDER BY ride_count DESC;
 ```
-```
+``` sql
 -- Query to see total user of electric and classic bike of people with casual membership
 SELECT 
   Rideable_Type, 
@@ -105,7 +105,7 @@ WHERE Member_Casual = 'casual'
 GROUP BY Rideable_Type
 ORDER BY ride_count DESC;
 ```
-```
+``` sql
 -- Query to see total user of electric and classic bike of people with permanent membership in decreasing manner
 SELECT 
   Rideable_Type, 
@@ -115,7 +115,7 @@ WHERE Member_Casual = 'member'
 GROUP BY Rideable_Type
 ORDER BY ride_count DESC;
 ```
-```
+``` sql
 -- Query to see total ride count according to the use of bike in a day also grouped by different membership 
 SELECT
   Member_Casual,
@@ -129,7 +129,7 @@ ORDER BY
   ride_hour
 LIMIT 25 OFFSET 2;
 ```
-```
+``` sql
 -- Qery to see most popular destination where the trip ended most of times
 SELECT 
   End_Station_Name,
@@ -142,7 +142,7 @@ ORDER BY
   total_rides DESC
 LIMIT 10;
 ```
-```
+``` sql
 -- Query to see total ride count for casual members and listing out most popular destinations where the trip ended
 SELECT 
   End_Station_Name,
@@ -157,7 +157,7 @@ ORDER BY
   ride_count DESC
 LIMIT 10;
 ```
-```
+``` sql
 -- Query to see average ride length for members
 SELECT
   Member_Casual,
