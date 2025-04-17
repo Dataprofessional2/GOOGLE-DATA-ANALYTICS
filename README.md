@@ -74,7 +74,7 @@ SELECT * FROM `divvy-data-456911.Divvy_Data.Jan_Data` ;
 SELECT * FROM `divvy-data-456911.Divvy_Data.Feb_Data` ;
 -- And so on
 ```
-```
+``` sql
 -- Query to sort data by Ride_Id
 select * from divvy-data-456911.Divvy_Data.Mar_Data
 order by Ride_Id;
