@@ -169,6 +169,24 @@ GROUP BY
 ;
 ```
 
+## 🚲 Casual User Bike Type Summary in R
+
+- This R script filters the bike-share data to show how many casual users used each bike type:
+
+```r
+#Working with R programming
+#Loading necessary library that will be used
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("ggplot2")
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+#check if the file exists that we actually want to import
+file.exists("D:/Google_Capstone/Imported_Data/Excel_zip_csv_files/Copy_of_original_data/apr_2024_divvy_tripdata.csv")
+```
+
+
 
 ### Key Questions Addressed:
 
