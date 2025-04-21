@@ -271,7 +271,8 @@ April_Data%>%
   group_by(Weekday, Member_Casual) %>%
   summarise(Ride_Count = n()) %>%
   arrange(factor(Weekday, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")))
-
+```
+```r
 
 # count top end destinations
 April_Data %>%
@@ -279,8 +280,8 @@ April_Data %>%
   summarise(ride_id = n()) %>%          
   arrange(desc(ride_id)) %>%            
   slice_head(n = 10)                    
-
-
+```
+```r
 View(April_Data)
 library(ggplot2)
 library(ggplot2)
@@ -291,17 +292,15 @@ ggplot(data = April_Data) +
   labs(title = "Number of Rides by User Type",
        x = "User Type",
        y = "Ride Count") 
-
+```
+```r
 #total rides of users with different bikes
 ggplot(April_Data, aes(x = rideable_type, fill = member_casual)) +
   geom_bar(position = "dodge") +
   labs(title = "Rides by Rideable Type and User Type", x = "Rideable Type", y = "Count") +
   theme_minimal()
-
-
-
-
-
+```
+```r
 #average ride length by day of week
 April_Data %>%
   group_by(Weekday, member_casual) %>%
@@ -310,10 +309,8 @@ April_Data %>%
   geom_col(position = "dodge") +
   labs(title = "Average Ride Duration by Weekday", x = "Day", y = "Avg Ride Length (min)") +
   theme_minimal()
-
-
-
-
+```
+```r
 # top 10 end destinations
 April_Data %>%
   filter(!is.na(end_station_name)) %>%
