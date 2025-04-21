@@ -186,8 +186,147 @@ library(ggplot2)
 file.exists("D:/Google_Capstone/Imported_Data/Excel_zip_csv_files/Copy_of_original_data/apr_2024_divvy_tripdata.csv")
 ```
 
+```r
+#Importing the CSV file
+April_Data=read.csv("D:/Google_Capstone/Imported_Data/Excel_zip_csv_files/Copy_of_original_data/apr_2024_divvy_tripdata.csv")  
+```
+
+```r 
+#Viewing/looking at the existing data
+View(April_Data)
+
+#looking at column names to avoid case sensitive error
+colnames(April_Data)
+
+#We can also make it a dataframe
+df=data.frame(April_Data)
+print(df)
+```
+
+```r
+# Replacing missing value in certain columns
+April_Data$start_station_name[April_Data$end_station_name == ""] <- NA
+April_Data$end_station_name[April_Data$end_station_name == ""] <- NA
+April_Data$end_station_id[April_Data$end_station_id == ""] <- NA
+April_Data$start_station_id[April_Data$end_station_id == ""] <- NA
+View(April_Data)
+```
+
+```r
+#Getting a quick look at the top or bottom of large datasets
+head(April_Data)
+tail(df)
+```
+```r
+#Counting the total number of people with casual & permanent members
+April_Data %>% count(member_casual)
+```
+
+```r
+# Counts the total members using electric bikes
+April_Data %>%
+  filter(rideable_type == "electric_bike") %>%  
+  count(member_casual) 
+```
+
+```r
+# Separating time column to make two new columns
+April_Data %>%
+  separate(started_at,c("Started_Date","Started_Time"),sep=" ")
+View(April_Data)
+```
+```r
+# Separating time column to make two new columns
+April_Data %>%
+  separate(started_at,c("Started_Date","Started_Time"),sep=" ")
+View(April_Data)
+```
+```r
+#Adding a new column to find ride length
+  April_Data %>%
+    mutate(Ride_Length=Ended_Time-Started_Time)
+```
+```r
+#adding new column of ride length
+April_Data <- April_Data %>%
+  mutate(
+    Ride_Length = as.numeric(difftime(end_datetime, start_datetime, units = "mins"))
+  )
+```
+```r
+# Load lubridate for date handling
+library(lubridate)
+
+# Convert to Date if it's character
+April_Data$Started_Date <- as.Date(April_Data$Started_Date)
+
+# Create Weekday column
+April_Data$Weekday <- wday(April_Data$Started_Date, label = TRUE, abbr = FALSE)
+```
+
+- Data Analysis and visualisations with R
+```r
+# counts the number of rides on different weekdays of casual members
+April_Data%>%
+  group_by(Weekday, Member_Casual) %>%
+  summarise(Ride_Count = n()) %>%
+  arrange(factor(Weekday, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")))
 
 
+# count top end destinations
+April_Data %>%
+  group_by(end_station_name) %>%        
+  summarise(ride_id = n()) %>%          
+  arrange(desc(ride_id)) %>%            
+  slice_head(n = 10)                    
+
+
+View(April_Data)
+library(ggplot2)
+library(ggplot2)
+
+# comparing total rides
+ggplot(data = April_Data) +
+  geom_bar(aes(x = member_casual, fill = member_casual), color = "black") +
+  labs(title = "Number of Rides by User Type",
+       x = "User Type",
+       y = "Ride Count") 
+
+#total rides of users with different bikes
+ggplot(April_Data, aes(x = rideable_type, fill = member_casual)) +
+  geom_bar(position = "dodge") +
+  labs(title = "Rides by Rideable Type and User Type", x = "Rideable Type", y = "Count") +
+  theme_minimal()
+
+
+
+
+
+#average ride length by day of week
+April_Data %>%
+  group_by(Weekday, member_casual) %>%
+  summarise(avg_ride = mean(Ride_Length, na.rm = TRUE)) %>%
+  ggplot(aes(x = Weekday, y = avg_ride, fill = member_casual)) +
+  geom_col(position = "dodge") +
+  labs(title = "Average Ride Duration by Weekday", x = "Day", y = "Avg Ride Length (min)") +
+  theme_minimal()
+
+
+
+
+# top 10 end destinations
+April_Data %>%
+  filter(!is.na(end_station_name)) %>%
+  group_by(end_station_name) %>%
+  summarise(total_rides = n()) %>%
+  arrange(desc(total_rides)) %>%
+  slice_head(n = 10) %>%
+  ggplot(aes(x = reorder(end_station_name, total_rides), y = total_rides)) +
+  geom_col(fill = "skyblue") +
+  coord_flip() +
+  labs(title = "Top 10 End Stations", x = "End Station", y = "Number of Rides") +
+  theme_minimal()
+```
 ### Key Questions Addressed:
 
 How do annual members and casual riders use Cyclistic bikes differently?
