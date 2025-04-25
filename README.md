@@ -43,7 +43,7 @@ Tools Used: R, Excel, SQL, Visualizations
 Data Sources: Historical trip data from Divvy (Cyclistic’s database)
 
 Technologies:
-- Excel - Cleaning Data [Download Here](https://docs.google.com/spreadsheets/d/1uCTsHlZLm4L7-ueaSLwDg0ut3BP_V4mKDo2IMpaXrk4/template/preview?resourcekey=0-dQAUjAu2UUCsLEQQt20PDA#gid=1797029090)
+- Excel - Cleaning Data [Cyclistic Bike Share Data](https://docs.google.com/spreadsheets/d/1uCTsHlZLm4L7-ueaSLwDg0ut3BP_V4mKDo2IMpaXrk4/template/preview?resourcekey=0-dQAUjAu2UUCsLEQQt20PDA#gid=1797029090)
 - R - Data Cleaning , Manipulation , Analysis , Visualisations
 - SQL - Data Analysis
 - Tableau - Creating Visualisations and dashboards
