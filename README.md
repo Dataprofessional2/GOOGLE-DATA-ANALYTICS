@@ -38,7 +38,7 @@ Challenge: Convert casual riders into annual members to increase profitability.
 
 Objective: Analyze how different types of customers use Cyclistic bikes and provide actionable insights to inform a marketing strategy focused on increasing annual memberships.
 
-Tools Used:
+Tools Used: R, Excel, SQL, Visualizations
 
 Data Sources: Historical trip data from Divvy (Cyclistic’s database)
 
