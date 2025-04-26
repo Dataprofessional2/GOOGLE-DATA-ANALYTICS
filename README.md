@@ -332,7 +332,7 @@ What trends can be identified in ride duration, time of use, and bike type?
 
 What marketing strategies could effectively convert casual riders into members?
 
-Findings Summary:
+## Findings Summary:
 
 Casual riders mostly take longer rides, especially on weekends.
 
@@ -340,9 +340,8 @@ Members are more consistent, commuting during weekdays.
 
 Docked bikes are used more by casual riders, while classic bikes are preferred by members.
 
-Recommendations:
+## Recommendations:
 
-Target weekend casual riders with discounts or trials for memberships.
-
-Promote benefits like cost savings, ease of commuting, and priority access.
-Use data to launch personalized marketing campaigns (e.g., email, in-app notifications).
+- Target weekend casual riders with discounts or trials for memberships.
+- Promote benefits like cost savings, ease of commuting, and priority access.
+- Use data to launch personalized marketing campaigns (e.g., email, in-app notifications).
