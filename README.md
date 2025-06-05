@@ -3,8 +3,6 @@
 ## How does a bike share navigates speedy success
 ### Table Of Contents
 - Introduction
-
-
 - Overview of Cyclistic Bike-Share
 
 - Business Objective
